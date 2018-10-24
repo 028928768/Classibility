@@ -14,6 +14,7 @@
 		153A80482180D5A70009E963 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 153A80462180D5A70009E963 /* LaunchScreen.storyboard */; };
 		153A80532180D5A70009E963 /* ClassibilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A80522180D5A70009E963 /* ClassibilityTests.swift */; };
 		153A805E2180D5A70009E963 /* ClassibilityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A805D2180D5A70009E963 /* ClassibilityUITests.swift */; };
+		153A806C2180D7480009E963 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A806B2180D7480009E963 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		153A80592180D5A70009E963 /* ClassibilityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassibilityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		153A805D2180D5A70009E963 /* ClassibilityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassibilityUITests.swift; sourceTree = "<group>"; };
 		153A805F2180D5A70009E963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		153A806B2180D7480009E963 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				153A803D2180D5A60009E963 /* AppDelegate.swift */,
 				153A803F2180D5A60009E963 /* ViewController.swift */,
 				153A80412180D5A60009E963 /* Main.storyboard */,
+				153A806B2180D7480009E963 /* LoginViewController.swift */,
 				153A80442180D5A70009E963 /* Assets.xcassets */,
 				153A80462180D5A70009E963 /* LaunchScreen.storyboard */,
 				153A80492180D5A70009E963 /* Info.plist */,
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				153A806C2180D7480009E963 /* LoginViewController.swift in Sources */,
 				153A80402180D5A60009E963 /* ViewController.swift in Sources */,
 				153A803E2180D5A60009E963 /* AppDelegate.swift in Sources */,
 			);
