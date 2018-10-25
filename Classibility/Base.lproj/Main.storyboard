@@ -83,7 +83,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginMethod:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qgj-L1-C32"/>
-                                    <segue destination="4Xa-wY-enL" kind="show" identifier="loginToHome" id="c6t-AN-OvV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJJ-Ah-mvE">
@@ -108,6 +107,10 @@
                                     <outletCollection property="gestureRecognizers" destination="lf7-Bp-TlM" appends="YES" id="5MM-cD-tyh"/>
                                 </connections>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="8bF-2q-6bb">
+                                <rect key="frame" x="191" y="331" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.12156862745098039" green="0.17254901960784313" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -119,6 +122,7 @@
                         <outlet property="forgetLabel" destination="l0p-lC-cxS" id="3ne-sf-yxU"/>
                         <outlet property="loginButton" destination="Oxg-j6-dv2" id="drx-VN-SRz"/>
                         <outlet property="registerLabel" destination="sJJ-Ah-mvE" id="7bM-xk-2Bg"/>
+                        <segue destination="4Xa-wY-enL" kind="show" identifier="loginToHome" id="tGp-kS-wZ9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -192,7 +196,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginMethod:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0iX-5f-d9b"/>
-                                    <segue destination="cGf-bJ-lQA" kind="show" id="UVC-8d-Uwu"/>
+                                    <action selector="resendMethod:" destination="tDj-E5-LLL" eventType="touchUpInside" id="sqr-Y4-1IU"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" delaysContentTouches="NO" canCancelContentTouches="NO" editable="NO" text="Privacy/secured zone all of user data will be covered due to security policy." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ah-TV-xMC">
@@ -216,7 +220,9 @@
                         <viewLayoutGuide key="safeArea" id="B4X-TK-1pL"/>
                     </view>
                     <connections>
+                        <outlet property="ForgetEmail" destination="R34-FL-327" id="1qB-Vs-db9"/>
                         <outlet property="forgetPanelOutlet" destination="cIH-zW-WzC" id="nXu-2g-to2"/>
+                        <segue destination="cGf-bJ-lQA" kind="show" identifier="forgetToResend" id="R7y-C0-izZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tzz-ur-GDs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -332,7 +338,6 @@
                                 </state>
                                 <connections>
                                     <action selector="signupMethod:" destination="jpJ-m4-vBX" eventType="touchUpInside" id="caU-dh-s4Y"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="signInSuccess" id="zN8-kJ-fgO"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="    Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ASz-iz-OG3">
@@ -358,11 +363,12 @@
                         <outlet property="registerEmailText" destination="K3A-dl-Bbh" id="HPp-oh-d0k"/>
                         <outlet property="registerPanel" destination="LRJ-Yc-kYQ" id="6lv-tO-Jqu"/>
                         <outlet property="registerPasswordText" destination="ASz-iz-OG3" id="t0f-18-P3j"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="signInSuccess" id="vdH-Xq-sYq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LUA-ez-0ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1876" y="509.59520239880067"/>
+            <point key="canvasLocation" x="1956" y="699"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hL3-fw-pLF">
@@ -383,6 +389,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Bou-Jf-hbm"/>
                     </view>
+                    <navigationItem key="navigationItem" id="kgo-q3-ZgQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3w-GP-2IC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -390,6 +397,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zN8-kJ-fgO"/>
+        <segue reference="vdH-Xq-sYq"/>
     </inferredMetricsTieBreakers>
 </document>
