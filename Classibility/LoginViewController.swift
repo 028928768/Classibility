@@ -13,6 +13,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var forgetLabel: UILabel!
     @IBOutlet weak var registerLabel: UILabel!
+    
+    //MARK Authentication
+    
+    @IBOutlet weak var EmailText: UITextField!
+    @IBOutlet weak var PasswordText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -114,6 +114,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="rXk-VI-JGX"/>
                     <connections>
+                        <outlet property="EmailText" destination="oGc-8c-Diw" id="Y1Z-Kb-ghl"/>
+                        <outlet property="PasswordText" destination="0Dx-6x-W5L" id="wUK-p0-SNc"/>
                         <outlet property="forgetLabel" destination="l0p-lC-cxS" id="3ne-sf-yxU"/>
                         <outlet property="loginButton" destination="Oxg-j6-dv2" id="drx-VN-SRz"/>
                         <outlet property="registerLabel" destination="sJJ-Ah-mvE" id="7bM-xk-2Bg"/>
@@ -329,7 +331,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="zN8-kJ-fgO"/>
+                                    <action selector="signupMethod:" destination="jpJ-m4-vBX" eventType="touchUpInside" id="caU-dh-s4Y"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="signInSuccess" id="zN8-kJ-fgO"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="    Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ASz-iz-OG3">
@@ -352,7 +355,9 @@
                         <viewLayoutGuide key="safeArea" id="XBN-Ey-uJX"/>
                     </view>
                     <connections>
+                        <outlet property="registerEmailText" destination="K3A-dl-Bbh" id="HPp-oh-d0k"/>
                         <outlet property="registerPanel" destination="LRJ-Yc-kYQ" id="6lv-tO-Jqu"/>
+                        <outlet property="registerPasswordText" destination="ASz-iz-OG3" id="t0f-18-P3j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LUA-ez-0ba" userLabel="First Responder" sceneMemberID="firstResponder"/>

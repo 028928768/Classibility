@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterViewController: UIViewController {
     let registerPanelImage = UIImage(named: "RegisterPanel")
     //MARK Outlets
     @IBOutlet weak var registerPanel: UIImageView!
+    //MARK Authentications
+    
+    @IBOutlet weak var registerEmailText: UITextField!
+    @IBOutlet weak var registerPasswordText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         assignbackground()
@@ -37,6 +42,16 @@ class RegisterViewController: UIViewController {
         registerPanel.image = registerPanelImage
         
     }
+    
+    @IBAction func signupMethod(_ sender: Any) {
+        Auth.auth().createUser(withEmail: registerEmailText.text!, password: registerPasswordText.text!) { (user, error) in
+            if error == nil {
+                self.performSegue(withIdentifier: "signInSuccess", sender: self)
+            }
+            
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
