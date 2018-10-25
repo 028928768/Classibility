@@ -83,7 +83,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginMethod:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qgj-L1-C32"/>
-                                    <segue destination="4Xa-wY-enL" kind="show" id="c6t-AN-OvV"/>
+                                    <segue destination="4Xa-wY-enL" kind="show" identifier="loginToHome" id="c6t-AN-OvV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJJ-Ah-mvE">

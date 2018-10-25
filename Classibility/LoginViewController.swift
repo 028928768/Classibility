@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import os.log
 
 class LoginViewController: UIViewController {
     //MARK Outlets
@@ -25,6 +27,23 @@ class LoginViewController: UIViewController {
     
     //MARK Actions
     @IBAction func loginMethod(_ sender: Any) {
+        if EmailText.text == nil || PasswordText.text == nil {
+            NSLog("null input")
+        }
+        Auth.auth().signIn(withEmail: EmailText.text!, password: PasswordText.text!) { (user, error) in
+            if error == nil{
+                self.performSegue(withIdentifier: "loginToHome", sender: self)
+            }
+            else{
+                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+        
+    
     }
     
     
