@@ -1,29 +1,28 @@
 //
-//  LoginViewController.swift
+//  ForgetViewController.swift
 //  Classibility
 //
-//  Created by Kanta'MacPro on 24/10/2561 BE.
+//  Created by Kanta'MacPro on 25/10/2561 BE.
 //  Copyright © 2561 Kanta'MacPro. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class ForgetViewController: UIViewController {
+    //MARK Images
+    let forgetImage = UIImage(named: "ForgetIMG")
     //MARK Outlets
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var forgetLabel: UILabel!
-    @IBOutlet weak var registerLabel: UILabel!
+    @IBOutlet weak var forgetPanelOutlet: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        assignForgetPanel()
+        // Do any additional setup after loading the view.
+    }
+    func assignForgetPanel(){
+        forgetPanelOutlet.image = forgetImage
+    }
 
-    }
-    
-    //MARK Actions
-    @IBAction func loginMethod(_ sender: Any) {
-    }
-    
-    
-    
     /*
     // MARK: - Navigation
 

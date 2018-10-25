@@ -1,28 +1,28 @@
 //
-//  LoginViewController.swift
+//  ResendViewController.swift
 //  Classibility
 //
-//  Created by Kanta'MacPro on 24/10/2561 BE.
+//  Created by Kanta'MacPro on 25/10/2561 BE.
 //  Copyright © 2561 Kanta'MacPro. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class ResendViewController: UIViewController {
+    //MARK Images
+    let rocketImage = UIImage(named: "rocketIMG")
     //MARK Outlets
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var forgetLabel: UILabel!
-    @IBOutlet weak var registerLabel: UILabel!
+    @IBOutlet weak var rocketOutlet: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        assignRocketImage()
+        // Do any additional setup after loading the view.
     }
     
-    //MARK Actions
-    @IBAction func loginMethod(_ sender: Any) {
+    func assignRocketImage(){
+        rocketOutlet.image = rocketImage
     }
-    
-    
     
     /*
     // MARK: - Navigation
