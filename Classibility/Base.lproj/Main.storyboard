@@ -373,7 +373,6 @@
         <!--View Controller-->
         <scene sceneID="hL3-fw-pLF">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O3w-GP-2IC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="4Xa-wY-enL" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0LL-Ii-8Me">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -392,6 +391,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="kgo-q3-ZgQ"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O3w-GP-2IC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3903" y="-541"/>
         </scene>
@@ -404,7 +404,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="BGT-rA-X0O" customClass="ClassTableViewCell" customModule="Classibility" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subjectCell" id="BGT-rA-X0O" customClass="ClassTableViewCell" customModule="Classibility" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BGT-rA-X0O" id="woK-S2-JHr">
@@ -477,6 +477,17 @@
                                         </stackView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="campusLabel" destination="fjA-HG-pJl" id="71n-ML-hVz"/>
+                                    <outlet property="className" destination="Kyu-ob-etD" id="GIQ-wE-sC3"/>
+                                    <outlet property="dayLabel" destination="Rkd-KF-AKF" id="hCg-yR-8ss"/>
+                                    <outlet property="facultyLabel" destination="tOr-10-SBX" id="24K-1d-BIb"/>
+                                    <outlet property="locationImage" destination="tEg-CH-9qx" id="9Na-u8-fns"/>
+                                    <outlet property="roomLabel" destination="cgg-fO-h8X" id="NlH-pu-ziY"/>
+                                    <outlet property="subjectCode" destination="4hX-AL-R3N" id="NWE-IB-Ykh"/>
+                                    <outlet property="timeImage" destination="ij0-Kg-Zbm" id="a2b-le-fCW"/>
+                                    <outlet property="timeLabel" destination="wCw-WN-PGF" id="Y7s-0U-sPd"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

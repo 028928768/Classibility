@@ -9,38 +9,56 @@
 import UIKit
 
 class ClassTableViewController: UITableViewController {
-
+    //MARK: Properties
+    var classes = [Class]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        //load sampleClass
+        loadSampleClass()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return classes.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cellIdentifier = "subjectCell"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ClassTableViewCell else {
+            fatalError("The dequeued cell is not an instance of ClassTableViewCell")
+        }
+        //Fetch data from datasource
+        let class_display = classes[indexPath.row]
+        
+        cell.subjectCode.text = class_display.subclassCode
+        cell.className.text = class_display.className
+        //stack1
+        cell.locationImage.image = class_display.locationPhoto
+        cell.roomLabel.text = class_display.room
+        cell.facultyLabel.text = class_display.faculty
+        cell.campusLabel.text = class_display.campus
+        //stack2
+        cell.timeImage.image = class_display.timePhoto
+        cell.dayLabel.text = class_display.day
+        cell.timeLabel.text = class_display.time
+        
 
-        // Configure the cell...
+        
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
@@ -77,6 +95,7 @@ class ClassTableViewController: UITableViewController {
     }
     */
 
+    
     /*
     // MARK: - Navigation
 
@@ -86,5 +105,15 @@ class ClassTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    //Private Method
+    private func loadSampleClass(){
+        let locationImage = UIImage()
+        let timeImage = UIImage()
+        
+        guard let class1 = Class(subclassCode: "EGCO425-2018", className: "Mobile Devices", locationPhoto: locationImage, room: "Room 6274", faculty: "Engineering faculty", campus: "Mahidol", timePhoto: timeImage, day: "Tuesday", time: "10.00am - 12.00pm") else {
+            fatalError("cannot load class1")
+        }
+        
+        classes += [class1]
+    }
 }

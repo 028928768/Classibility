@@ -9,7 +9,23 @@
 import UIKit
 
 class ClassTableViewCell: UITableViewCell {
-
+    //MARK: Properties
+    @IBOutlet weak var subjectCode: UILabel!
+    @IBOutlet weak var className: UILabel!
+    
+    //stack1
+    @IBOutlet weak var locationImage: UIImageView!
+    @IBOutlet weak var roomLabel: UILabel!
+    @IBOutlet weak var facultyLabel: UILabel!
+    @IBOutlet weak var campusLabel: UILabel!
+    
+    //stack2
+    @IBOutlet weak var timeImage: UIImageView!
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
