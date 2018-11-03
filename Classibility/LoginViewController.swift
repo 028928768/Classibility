@@ -32,7 +32,8 @@ class LoginViewController: UIViewController {
         }
         Auth.auth().signIn(withEmail: EmailText.text!, password: PasswordText.text!) { (user, error) in
             if error == nil{
-                self.performSegue(withIdentifier: "loginToHome", sender: self)
+                self.performSegue(withIdentifier: "LoginToHomePage", sender: self)
+                print("Login success!")
             }
             else{
                 let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
