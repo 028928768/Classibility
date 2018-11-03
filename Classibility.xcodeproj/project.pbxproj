@@ -17,7 +17,9 @@
 		153A806E2180E9D90009E963 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A806D2180E9D90009E963 /* RegisterViewController.swift */; };
 		159FEE252181A03D005B0683 /* ForgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FEE242181A03D005B0683 /* ForgetViewController.swift */; };
 		159FEE272181A421005B0683 /* ResendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FEE262181A421005B0683 /* ResendViewController.swift */; };
-		159FEE332181E147005B0683 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 159FEE322181E147005B0683 /* GoogleService-Info.plist */; };
+		15EAEA88218DF3CE00073472 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15EAEA87218DF3CE00073472 /* GoogleService-Info.plist */; };
+		15EAEA8A218DF52100073472 /* ClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EAEA89218DF52100073472 /* ClassTableViewCell.swift */; };
+		15EAEA8C218DF54400073472 /* ClassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EAEA8B218DF54400073472 /* ClassTableViewController.swift */; };
 		43282EFF8661B7E6DDA134C4 /* Pods_ClassibilityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8609475F857C81DB708CFE9 /* Pods_ClassibilityTests.framework */; };
 		7AB0C847BE0F2C18BFE54BA7 /* Pods_ClassibilityUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905F1111E81936EC2AC93A5A /* Pods_ClassibilityUITests.framework */; };
 		F656E1CC5AF917913D77F9D4 /* Pods_Classibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C27037508673236A7B75D88 /* Pods_Classibility.framework */; };
@@ -58,7 +60,9 @@
 		153A806D2180E9D90009E963 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		159FEE242181A03D005B0683 /* ForgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewController.swift; sourceTree = "<group>"; };
 		159FEE262181A421005B0683 /* ResendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendViewController.swift; sourceTree = "<group>"; };
-		159FEE322181E147005B0683 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		15EAEA87218DF3CE00073472 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		15EAEA89218DF52100073472 /* ClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTableViewCell.swift; sourceTree = "<group>"; };
+		15EAEA8B218DF54400073472 /* ClassTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTableViewController.swift; sourceTree = "<group>"; };
 		232AB3CBC92DCE4A10D61B99 /* Pods-ClassibilityUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassibilityUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassibilityUITests/Pods-ClassibilityUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3C3E71A3F7C40EC25A591226 /* Pods-ClassibilityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassibilityTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassibilityTests/Pods-ClassibilityTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B647EEB55EC57F1F082B276 /* Pods-ClassibilityUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassibilityUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassibilityUITests/Pods-ClassibilityUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,13 +128,15 @@
 			children = (
 				153A803D2180D5A60009E963 /* AppDelegate.swift */,
 				153A80412180D5A60009E963 /* Main.storyboard */,
+				15EAEA8B218DF54400073472 /* ClassTableViewController.swift */,
+				15EAEA89218DF52100073472 /* ClassTableViewCell.swift */,
 				159FEE262181A421005B0683 /* ResendViewController.swift */,
 				159FEE242181A03D005B0683 /* ForgetViewController.swift */,
 				153A806D2180E9D90009E963 /* RegisterViewController.swift */,
 				153A806B2180D7480009E963 /* LoginViewController.swift */,
 				153A80442180D5A70009E963 /* Assets.xcassets */,
 				153A80462180D5A70009E963 /* LaunchScreen.storyboard */,
-				159FEE322181E147005B0683 /* GoogleService-Info.plist */,
+				15EAEA87218DF3CE00073472 /* GoogleService-Info.plist */,
 				153A80492180D5A70009E963 /* Info.plist */,
 			);
 			path = Classibility;
@@ -286,7 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				153A80482180D5A70009E963 /* LaunchScreen.storyboard in Resources */,
-				159FEE332181E147005B0683 /* GoogleService-Info.plist in Resources */,
+				15EAEA88218DF3CE00073472 /* GoogleService-Info.plist in Resources */,
 				153A80452180D5A70009E963 /* Assets.xcassets in Resources */,
 				153A80432180D5A60009E963 /* Main.storyboard in Resources */,
 			);
@@ -410,6 +416,8 @@
 			files = (
 				153A806E2180E9D90009E963 /* RegisterViewController.swift in Sources */,
 				153A806C2180D7480009E963 /* LoginViewController.swift in Sources */,
+				15EAEA8C218DF54400073472 /* ClassTableViewController.swift in Sources */,
+				15EAEA8A218DF52100073472 /* ClassTableViewCell.swift in Sources */,
 				159FEE272181A421005B0683 /* ResendViewController.swift in Sources */,
 				153A803E2180D5A60009E963 /* AppDelegate.swift in Sources */,
 				159FEE252181A03D005B0683 /* ForgetViewController.swift in Sources */,
