@@ -96,15 +96,34 @@ class ClassTableViewController: UITableViewController {
     */
 
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        switch (segue.identifier ?? "") {
+        case "showClassDetails":
+            guard let detailViewController = segue.destination as? DetailsViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            guard let selectedClassCell = sender as? ClassTableViewCell else {
+                fatalError("Unexpected sender: \(sender)")
+            }
+            guard let indexPath = tableView.indexPath(for: selectedClassCell) else {
+                fatalError("The selected class cell is not being displayed by the table")
+            }
+            let selectedClass = classes[indexPath.row]
+            detailViewController.select_class = selectedClass
+        case "newClass":
+            print("Navigate from Addbutton to newclass page")
+            default:
+            fatalError("Unexpected identifier!")
+        }
     }
-    */
+
+ 
+    
     
     @IBAction func unwindToMainClass(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? NewClassViewController, let new_class = sourceViewController.new_class
