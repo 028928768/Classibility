@@ -105,6 +105,20 @@ class ClassTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func unwindToMainClass(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? NewClassViewController, let new_class = sourceViewController.new_class
+        {
+            //Add a new Class
+            let newIndexPath = IndexPath(row: classes.count, section: 0)
+            
+            classes.append(new_class)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            
+            
+        }
+        
+    }
     //Private Method
     private func loadSampleClass(){
         let locationImage = UIImage()

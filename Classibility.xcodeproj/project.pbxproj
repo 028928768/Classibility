@@ -18,6 +18,10 @@
 		159FEE252181A03D005B0683 /* ForgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FEE242181A03D005B0683 /* ForgetViewController.swift */; };
 		159FEE272181A421005B0683 /* ResendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FEE262181A421005B0683 /* ResendViewController.swift */; };
 		15E99056218EB44C00043441 /* NewClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E99055218EB44C00043441 /* NewClassViewController.swift */; };
+		15E9905A218EC86500043441 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E99058218EC86500043441 /* LocationViewController.swift */; };
+		15E9905B218EC86500043441 /* LocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E99059218EC86500043441 /* LocationViewController.xib */; };
+		15E9905E218EC88500043441 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E9905C218EC88500043441 /* TimeViewController.swift */; };
+		15E9905F218EC88500043441 /* TimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E9905D218EC88500043441 /* TimeViewController.xib */; };
 		15EAEA88218DF3CE00073472 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15EAEA87218DF3CE00073472 /* GoogleService-Info.plist */; };
 		15EAEA8A218DF52100073472 /* ClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EAEA89218DF52100073472 /* ClassTableViewCell.swift */; };
 		15EAEA8C218DF54400073472 /* ClassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EAEA8B218DF54400073472 /* ClassTableViewController.swift */; };
@@ -63,6 +67,10 @@
 		159FEE242181A03D005B0683 /* ForgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewController.swift; sourceTree = "<group>"; };
 		159FEE262181A421005B0683 /* ResendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendViewController.swift; sourceTree = "<group>"; };
 		15E99055218EB44C00043441 /* NewClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassViewController.swift; sourceTree = "<group>"; };
+		15E99058218EC86500043441 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		15E99059218EC86500043441 /* LocationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationViewController.xib; sourceTree = "<group>"; };
+		15E9905C218EC88500043441 /* TimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
+		15E9905D218EC88500043441 /* TimeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeViewController.xib; sourceTree = "<group>"; };
 		15EAEA87218DF3CE00073472 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		15EAEA89218DF52100073472 /* ClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTableViewCell.swift; sourceTree = "<group>"; };
 		15EAEA8B218DF54400073472 /* ClassTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTableViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +138,7 @@
 		153A803C2180D5A60009E963 /* Classibility */ = {
 			isa = PBXGroup;
 			children = (
+				15E99057218EC7FC00043441 /* newClassViews */,
 				153A803D2180D5A60009E963 /* AppDelegate.swift */,
 				153A80412180D5A60009E963 /* Main.storyboard */,
 				15E99055218EB44C00043441 /* NewClassViewController.swift */,
@@ -164,6 +173,17 @@
 				153A805F2180D5A70009E963 /* Info.plist */,
 			);
 			path = ClassibilityUITests;
+			sourceTree = "<group>";
+		};
+		15E99057218EC7FC00043441 /* newClassViews */ = {
+			isa = PBXGroup;
+			children = (
+				15E99058218EC86500043441 /* LocationViewController.swift */,
+				15E99059218EC86500043441 /* LocationViewController.xib */,
+				15E9905C218EC88500043441 /* TimeViewController.swift */,
+				15E9905D218EC88500043441 /* TimeViewController.xib */,
+			);
+			path = newClassViews;
 			sourceTree = "<group>";
 		};
 		A25936D5E62B064CD0790CF7 /* Frameworks */ = {
@@ -298,8 +318,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				153A80482180D5A70009E963 /* LaunchScreen.storyboard in Resources */,
+				15E9905F218EC88500043441 /* TimeViewController.xib in Resources */,
 				15EAEA88218DF3CE00073472 /* GoogleService-Info.plist in Resources */,
 				153A80452180D5A70009E963 /* Assets.xcassets in Resources */,
+				15E9905B218EC86500043441 /* LocationViewController.xib in Resources */,
 				153A80432180D5A60009E963 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +447,8 @@
 				15EAEA8C218DF54400073472 /* ClassTableViewController.swift in Sources */,
 				15EAEA8A218DF52100073472 /* ClassTableViewCell.swift in Sources */,
 				15EAEA8E218E156C00073472 /* Class.swift in Sources */,
+				15E9905E218EC88500043441 /* TimeViewController.swift in Sources */,
+				15E9905A218EC86500043441 /* LocationViewController.swift in Sources */,
 				159FEE272181A421005B0683 /* ResendViewController.swift in Sources */,
 				153A803E2180D5A60009E963 /* AppDelegate.swift in Sources */,
 				15E99056218EB44C00043441 /* NewClassViewController.swift in Sources */,
