@@ -7,17 +7,49 @@
 //
 
 import UIKit
+import Firebase
+import os.log
 
 class ClassTableViewController: UITableViewController {
     //MARK: Properties
     var classes = [Class]()
+    var test: String = ""
+    
+    //Database ref
+    let ref = Database.database().reference()
+    let classBranch = Database.database().reference(withPath: "Class/Mobile")
+    let classDetail = Database.database().reference(withPath: "Class/Mobile/Details")
+    
+   // ref = Database.database().reference()
+ //   let userID :String = Auth.auth().currentUser?.email ?? "default Email value"
+    //let userID :String = Auth.auth().currentUser?.providerData["email"] ?? "default value"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
-        //load sampleClass
-        loadSampleClass()
+       // load sampleClass
+       
+        ref.child("Class/Mobile/Details/Code").observe(.value, with: { (snapshot) in
+           // print(snapshot.value as Any)
+        
+        })
+        
+        ref.child("Class/Mobile/Details").queryOrderedByKey().observeSingleEvent(of: .value, with: { snapshot in
+            
+            guard let dict = snapshot.value as? [String:Any] else {
+                print("Error")
+                return
+            }
+            let SubjectCode = dict["Code"] as? String ?? ""
+            self.test = SubjectCode
+            //print(self.test)
+        })
+       
+        
+         loadSampleClass()
+        
     }
 
     // MARK: - Table view data source
@@ -134,7 +166,7 @@ class ClassTableViewController: UITableViewController {
             classes.append(new_class)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
             
-            
+        
         }
         
     }
@@ -143,7 +175,15 @@ class ClassTableViewController: UITableViewController {
         let locationImage = UIImage()
         let timeImage = UIImage()
         
-        guard let class1 = Class(subclassCode: "EGCO425-2018", className: "Mobile Devices", locationPhoto: locationImage, room: "Room 6274", faculty: "Engineering faculty", campus: "Mahidol", timePhoto: timeImage, day: "Tuesday", time: "10.00am - 12.00pm") else {
+        
+        //fetch database
+        //let classBranch = Database.database().reference(withPath: "Class/Mobile")
+        
+        let temp = self.test
+        print(temp)
+        
+      
+        guard let class1 = Class(subclassCode: "temp", className: "a", locationPhoto: locationImage, room: "Room 6274", faculty: "Engineering faculty", campus: "Mahidol", timePhoto: timeImage, day: "Tuesday", time: "10.00am - 12.00pm") else {
             fatalError("cannot load class1")
         }
         

@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var forgetLabel: UILabel!
     @IBOutlet weak var registerLabel: UILabel!
+    @IBOutlet weak var setID: UIButton!
     
     //MARK Authentication
     
@@ -47,6 +48,10 @@ class LoginViewController: UIViewController {
     
     }
     
+    @IBAction func setIDAction(_ sender: Any) {
+        EmailText.text = "a@hotmail.com"
+        PasswordText.text = "123456"
+    }
     
     
     /*

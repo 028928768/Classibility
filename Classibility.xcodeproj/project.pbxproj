@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15111648219346E700CAA1D2 /* ClassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15111647219346E700CAA1D2 /* ClassData.swift */; };
 		153A803E2180D5A60009E963 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A803D2180D5A60009E963 /* AppDelegate.swift */; };
 		153A80432180D5A60009E963 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 153A80412180D5A60009E963 /* Main.storyboard */; };
 		153A80452180D5A70009E963 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 153A80442180D5A70009E963 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		06F27CFC14EBF9721598C5FC /* Pods-ClassibilityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassibilityTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassibilityTests/Pods-ClassibilityTests.release.xcconfig"; sourceTree = "<group>"; };
+		15111647219346E700CAA1D2 /* ClassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassData.swift; sourceTree = "<group>"; };
 		153A803A2180D5A60009E963 /* Classibility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Classibility.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		153A803D2180D5A60009E963 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		153A80422180D5A60009E963 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				15F2D356218F447F00EC5B85 /* DetailsViewController.swift */,
 				15E99055218EB44C00043441 /* NewClassViewController.swift */,
 				15EAEA8D218E156C00073472 /* Class.swift */,
+				15111647219346E700CAA1D2 /* ClassData.swift */,
 				15EAEA8B218DF54400073472 /* ClassTableViewController.swift */,
 				15EAEA89218DF52100073472 /* ClassTableViewCell.swift */,
 				159FEE262181A421005B0683 /* ResendViewController.swift */,
@@ -357,6 +360,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Classibility/Pods-Classibility-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -365,6 +369,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,6 +456,7 @@
 				15EAEA8A218DF52100073472 /* ClassTableViewCell.swift in Sources */,
 				15EAEA8E218E156C00073472 /* Class.swift in Sources */,
 				15E9905E218EC88500043441 /* TimeViewController.swift in Sources */,
+				15111648219346E700CAA1D2 /* ClassData.swift in Sources */,
 				15E9905A218EC86500043441 /* LocationViewController.swift in Sources */,
 				159FEE272181A421005B0683 /* ResendViewController.swift in Sources */,
 				153A803E2180D5A60009E963 /* AppDelegate.swift in Sources */,
