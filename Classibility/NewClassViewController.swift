@@ -60,7 +60,7 @@ class NewClassViewController: UIViewController {
         let class_name = ClassName.text ?? ""
         
         //set NewClass for adding to MainClass page
-        new_class = Class(subclassCode: subject_code, className: class_name, locationPhoto: locationImage, room: "testroom", faculty: "testFaculty", campus: "Mahidol", timePhoto: timeImage, day: "openday", time: "12.00AM")
+        new_class = Class(campus: "Mahidol", classname: class_name, code: subject_code, day: "openday", faculty: "testFaculty", roomnumber: "testroom", time: "12.00AM", locationPhoto: locationImage, timePhoto: timeImage)
        
     }
  

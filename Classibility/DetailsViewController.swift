@@ -31,9 +31,9 @@ class DetailsViewController: UIViewController {
         timePhoto.image = timeImage
         
         //assign received class to outlets
-        classCode.text = select_class?.subclassCode
-        className.text = select_class?.className
-        roomLabel.text = select_class?.room
+        classCode.text = select_class?.code
+        className.text = select_class?.classname
+        roomLabel.text = select_class?.roomnumber
         facultyLabel.text = select_class?.faculty
         campusLabel.text = select_class?.campus
         dayLabel.text = select_class?.day

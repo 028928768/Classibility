@@ -7,13 +7,16 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseDatabase
 import os.log
 
 class ClassTableViewController: UITableViewController {
     //MARK: Properties
     var classes = [Class]()
-    var test: String = ""
+  //  var testNodes = [TestNode]()
+    let LocationImage = UIImage(named:"LocationIMG")
+    let TimeImage = UIImage(named:"TimeIMG")
+    
     
     //Database ref
     let ref = Database.database().reference()
@@ -31,25 +34,45 @@ class ClassTableViewController: UITableViewController {
         
        // load sampleClass
        
-        ref.child("Class/Mobile/Details/Code").observe(.value, with: { (snapshot) in
-           // print(snapshot.value as Any)
         
-        })
-        
-        ref.child("Class/Mobile/Details").queryOrderedByKey().observeSingleEvent(of: .value, with: { snapshot in
-            
-            guard let dict = snapshot.value as? [String:Any] else {
-                print("Error")
-                return
-            }
-            let SubjectCode = dict["Code"] as? String ?? ""
-            self.test = SubjectCode
-            //print(self.test)
-        })
+//        ref.child("Class/Mobile/Details").queryOrderedByKey().observeSingleEvent(of: .value, with: { snapshot in
+//
+//            guard let dict = snapshot.value as? [String:Any] else {
+//                print("Error")
+//                return
+//            }
+//            let SubjectCode = dict["Code"] as? String ?? ""
+//            print(dict)
+//        })
+        FetchNode()
        
         
-         loadSampleClass()
+        // loadSampleClass()
         
+    }
+    
+    func FetchNode() {
+        ref.child("Class/pattern/details").observe(.value , with: { snapshot in
+            print(snapshot.value)
+            if let dict = snapshot.value as? [String: Any] {
+                let Campus = dict["campus"] as! String
+                let SubjectName = dict["classname"] as! String
+                let Code = dict["code"] as! String
+                let Day = dict["day"] as! String
+                let Faculty = dict["faculty"] as! String
+                //let Roomnumber = dict["roomnumber"] as! String
+                let Time = dict["time"] as! String
+                
+                print(SubjectName)
+                let loaded_class = Class(campus: Campus, classname: SubjectName, code: Code, day: Day, faculty: Faculty, roomnumber: "Room", time: Time, locationPhoto: self.LocationImage, timePhoto: self.TimeImage)
+
+//                let loaded_class = Class(subclassCode: Code, className: SubjectName, locationPhoto: self.LocationImage, room: Room, faculty: Faculty, campus: Campus, timePhoto: self.TimeImage, day: Day, time: Time)
+                self.classes.append(loaded_class!)
+
+                self.tableView.reloadData()
+                print(SubjectName)
+            }
+        })
     }
 
     // MARK: - Table view data source
@@ -71,20 +94,21 @@ class ClassTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of ClassTableViewCell")
         }
         //Fetch data from datasource
-        let class_display = classes[indexPath.row]
+          let ClassCell = classes[indexPath.row]
+       // cell.textLabel?.text = testNodes[indexPath.row].caption
         
-        cell.subjectCode.text = class_display.subclassCode
-        cell.className.text = class_display.className
-        //stack1
-        cell.locationImage.image = class_display.locationPhoto
-        cell.roomLabel.text = class_display.room
-        cell.facultyLabel.text = class_display.faculty
-        cell.campusLabel.text = class_display.campus
-        //stack2
-        cell.timeImage.image = class_display.timePhoto
-        cell.dayLabel.text = class_display.day
-        cell.timeLabel.text = class_display.time
-        
+          cell.subjectCode.text = ClassCell.code
+          cell.className.text = ClassCell.classname
+//        stack1
+          cell.locationImage.image = ClassCell.locationPhoto
+          cell.roomLabel.text = ClassCell.roomnumber
+          cell.facultyLabel.text = ClassCell.faculty
+          cell.campusLabel.text = ClassCell.campus
+//        stack2
+          cell.timeImage.image = ClassCell.timePhoto
+          cell.dayLabel.text = ClassCell.day
+          cell.timeLabel.text = ClassCell.time
+//
 
         
 
@@ -179,14 +203,13 @@ class ClassTableViewController: UITableViewController {
         //fetch database
         //let classBranch = Database.database().reference(withPath: "Class/Mobile")
         
-        let temp = self.test
-        print(temp)
+        
         
       
-        guard let class1 = Class(subclassCode: "temp", className: "a", locationPhoto: locationImage, room: "Room 6274", faculty: "Engineering faculty", campus: "Mahidol", timePhoto: timeImage, day: "Tuesday", time: "10.00am - 12.00pm") else {
-            fatalError("cannot load class1")
-        }
+//        guard let class1 = Class(subclassCode: "temp", className: "a", locationPhoto: locationImage, room: "Room 6274", faculty: "Engineering faculty", campus: "Mahidol", timePhoto: timeImage, day: "Tuesday", time: "10.00am - 12.00pm") else {
+//            fatalError("cannot load class1")
+//        }
         
-        classes += [class1]
+      //  classes += [class1]
     }
 }
