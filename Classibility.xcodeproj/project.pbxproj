@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		15111648219346E700CAA1D2 /* ClassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15111647219346E700CAA1D2 /* ClassData.swift */; };
-		1511164C21935F3500CAA1D2 /* TestNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511164B21935F3500CAA1D2 /* TestNode.swift */; };
 		153A803E2180D5A60009E963 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A803D2180D5A60009E963 /* AppDelegate.swift */; };
 		153A80432180D5A60009E963 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 153A80412180D5A60009E963 /* Main.storyboard */; };
 		153A80452180D5A70009E963 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 153A80442180D5A70009E963 /* Assets.xcassets */; };
@@ -17,6 +16,9 @@
 		153A805E2180D5A70009E963 /* ClassibilityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A805D2180D5A70009E963 /* ClassibilityUITests.swift */; };
 		153A806C2180D7480009E963 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A806B2180D7480009E963 /* LoginViewController.swift */; };
 		153A806E2180E9D90009E963 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A806D2180E9D90009E963 /* RegisterViewController.swift */; };
+		1556E4DE2196B11C007240F4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1556E4DD2196B11C007240F4 /* ProfileViewController.swift */; };
+		1556E4E02196B12C007240F4 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1556E4DF2196B12C007240F4 /* EditProfileViewController.swift */; };
+		1556E4E22196B4D0007240F4 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1556E4E12196B4D0007240F4 /* Profile.swift */; };
 		159FEE252181A03D005B0683 /* ForgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FEE242181A03D005B0683 /* ForgetViewController.swift */; };
 		159FEE272181A421005B0683 /* ResendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FEE262181A421005B0683 /* ResendViewController.swift */; };
 		15D167F52195FA5A0040B623 /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D167F42195FA5A0040B623 /* CheckInViewController.swift */; };
@@ -57,7 +59,6 @@
 /* Begin PBXFileReference section */
 		06F27CFC14EBF9721598C5FC /* Pods-ClassibilityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassibilityTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassibilityTests/Pods-ClassibilityTests.release.xcconfig"; sourceTree = "<group>"; };
 		15111647219346E700CAA1D2 /* ClassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassData.swift; sourceTree = "<group>"; };
-		1511164B21935F3500CAA1D2 /* TestNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNode.swift; sourceTree = "<group>"; };
 		153A803A2180D5A60009E963 /* Classibility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Classibility.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		153A803D2180D5A60009E963 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		153A80422180D5A60009E963 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,6 +73,9 @@
 		153A805F2180D5A70009E963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		153A806B2180D7480009E963 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		153A806D2180E9D90009E963 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		1556E4DD2196B11C007240F4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1556E4DF2196B12C007240F4 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		1556E4E12196B4D0007240F4 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		159FEE242181A03D005B0683 /* ForgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewController.swift; sourceTree = "<group>"; };
 		159FEE262181A421005B0683 /* ResendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendViewController.swift; sourceTree = "<group>"; };
 		15D167F42195FA5A0040B623 /* CheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
@@ -128,8 +132,8 @@
 		1511164A21935F0600CAA1D2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1511164B21935F3500CAA1D2 /* TestNode.swift */,
 				15EAEA8D218E156C00073472 /* Class.swift */,
+				1556E4E12196B4D0007240F4 /* Profile.swift */,
 				15111647219346E700CAA1D2 /* ClassData.swift */,
 			);
 			path = Model;
@@ -163,6 +167,8 @@
 				15E99057218EC7FC00043441 /* newClassViews */,
 				153A803D2180D5A60009E963 /* AppDelegate.swift */,
 				153A80412180D5A60009E963 /* Main.storyboard */,
+				1556E4DD2196B11C007240F4 /* ProfileViewController.swift */,
+				1556E4DF2196B12C007240F4 /* EditProfileViewController.swift */,
 				15D167F82196034B0040B623 /* LectureTableViewCell.swift */,
 				15D167F6219603270040B623 /* LecturesTableViewController.swift */,
 				15D167F42195FA5A0040B623 /* CheckInViewController.swift */,
@@ -476,6 +482,8 @@
 				15EAEA8C218DF54400073472 /* ClassTableViewController.swift in Sources */,
 				15EAEA8A218DF52100073472 /* ClassTableViewCell.swift in Sources */,
 				15D167F52195FA5A0040B623 /* CheckInViewController.swift in Sources */,
+				1556E4DE2196B11C007240F4 /* ProfileViewController.swift in Sources */,
+				1556E4E02196B12C007240F4 /* EditProfileViewController.swift in Sources */,
 				15EAEA8E218E156C00073472 /* Class.swift in Sources */,
 				15E9905E218EC88500043441 /* TimeViewController.swift in Sources */,
 				15111648219346E700CAA1D2 /* ClassData.swift in Sources */,
@@ -483,8 +491,8 @@
 				159FEE272181A421005B0683 /* ResendViewController.swift in Sources */,
 				153A803E2180D5A60009E963 /* AppDelegate.swift in Sources */,
 				15E99056218EB44C00043441 /* NewClassViewController.swift in Sources */,
-				1511164C21935F3500CAA1D2 /* TestNode.swift in Sources */,
 				159FEE252181A03D005B0683 /* ForgetViewController.swift in Sources */,
+				1556E4E22196B4D0007240F4 /* Profile.swift in Sources */,
 				15D167F7219603270040B623 /* LecturesTableViewController.swift in Sources */,
 				15F2D357218F447F00EC5B85 /* DetailsViewController.swift in Sources */,
 			);
