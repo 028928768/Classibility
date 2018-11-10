@@ -9,7 +9,12 @@
 import UIKit
 
 class LectureTableViewCell: UITableViewCell {
-
+    //MARK: Properties
+    @IBOutlet weak var lectureOrder: UILabel!
+    @IBOutlet weak var lectureDate: UILabel!
+    @IBOutlet weak var lectureRoom: UILabel!
+    @IBOutlet weak var lectureVector: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

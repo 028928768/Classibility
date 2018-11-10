@@ -19,6 +19,7 @@
 		1556E4DE2196B11C007240F4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1556E4DD2196B11C007240F4 /* ProfileViewController.swift */; };
 		1556E4E02196B12C007240F4 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1556E4DF2196B12C007240F4 /* EditProfileViewController.swift */; };
 		1556E4E22196B4D0007240F4 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1556E4E12196B4D0007240F4 /* Profile.swift */; };
+		1556E4E421973C42007240F4 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1556E4E321973C42007240F4 /* Lecture.swift */; };
 		159FEE252181A03D005B0683 /* ForgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FEE242181A03D005B0683 /* ForgetViewController.swift */; };
 		159FEE272181A421005B0683 /* ResendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FEE262181A421005B0683 /* ResendViewController.swift */; };
 		15D167F52195FA5A0040B623 /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D167F42195FA5A0040B623 /* CheckInViewController.swift */; };
@@ -76,6 +77,7 @@
 		1556E4DD2196B11C007240F4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1556E4DF2196B12C007240F4 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		1556E4E12196B4D0007240F4 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		1556E4E321973C42007240F4 /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		159FEE242181A03D005B0683 /* ForgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewController.swift; sourceTree = "<group>"; };
 		159FEE262181A421005B0683 /* ResendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendViewController.swift; sourceTree = "<group>"; };
 		15D167F42195FA5A0040B623 /* CheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				15EAEA8D218E156C00073472 /* Class.swift */,
 				1556E4E12196B4D0007240F4 /* Profile.swift */,
 				15111647219346E700CAA1D2 /* ClassData.swift */,
+				1556E4E321973C42007240F4 /* Lecture.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				15D167F92196034B0040B623 /* LectureTableViewCell.swift in Sources */,
 				153A806C2180D7480009E963 /* LoginViewController.swift in Sources */,
 				15EAEA8C218DF54400073472 /* ClassTableViewController.swift in Sources */,
+				1556E4E421973C42007240F4 /* Lecture.swift in Sources */,
 				15EAEA8A218DF52100073472 /* ClassTableViewCell.swift in Sources */,
 				15D167F52195FA5A0040B623 /* CheckInViewController.swift in Sources */,
 				1556E4DE2196B11C007240F4 /* ProfileViewController.swift in Sources */,

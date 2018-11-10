@@ -52,7 +52,8 @@ class ClassTableViewController: UITableViewController {
     }
     
     func FetchNode() {
-        ref.child("Class/pattern/details").observe(.value , with: { snapshot in
+        //ref.child("Class/pattern/details").observe(.value , with: { snapshot in
+         ref.child("Class/Mobile/details").observe(.value , with: { snapshot in
             print(snapshot.value)
             if let dict = snapshot.value as? [String: Any] {
                 let Campus = dict["campus"] as! String
