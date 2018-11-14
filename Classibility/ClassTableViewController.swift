@@ -44,16 +44,46 @@ class ClassTableViewController: UITableViewController {
 //            let SubjectCode = dict["Code"] as? String ?? ""
 //            print(dict)
 //        })
-        FetchNode()
+        //fetch mobile class data from firebase database
+        FetchMobileClassDetails()
+        //fetch pattern class data from firebase database
+        FetchPatternClassDetails()
+        //fetch Images class data from firebase database
+        FetchImageClassDetails()
        
         
         // loadSampleClass()
         
     }
     
-    func FetchNode() {
+    //fetch mobilde class Firebase
+    func FetchMobileClassDetails() {
         //ref.child("Class/pattern/details").observe(.value , with: { snapshot in
          ref.child("Class/Mobile/details").observe(.value , with: { snapshot in
+          //  for i in ref.child(<#T##pathString: String##String#>)
+            print(snapshot.value)
+            if let dict = snapshot.value as? [String: Any] {
+                let Campus = dict["campus"] as! String
+                let SubjectName = dict["classname"] as! String
+                let Code = dict["code"] as! String
+                let Day = dict["day"] as! String
+                let Faculty = dict["faculty"] as! String
+                //let Roomnumber = dict["roomnumber"] as! String
+                let Time = dict["time"] as! String
+            
+                let loaded_class = Class(campus: Campus, classname: SubjectName, code: Code, day: Day, faculty: Faculty, roomnumber: "Room", time: Time, locationPhoto: self.LocationImage, timePhoto: self.TimeImage)
+
+                self.classes.append(loaded_class!)
+
+                self.tableView.reloadData()
+            }
+        })
+    }
+    
+    //fetch pattern class Firebase
+    func FetchPatternClassDetails() {
+        ref.child("Class/Pattern/details").observe(.value , with: { snapshot in
+            //  for i in ref.child(<#T##pathString: String##String#>)
             print(snapshot.value)
             if let dict = snapshot.value as? [String: Any] {
                 let Campus = dict["campus"] as! String
@@ -64,14 +94,34 @@ class ClassTableViewController: UITableViewController {
                 //let Roomnumber = dict["roomnumber"] as! String
                 let Time = dict["time"] as! String
                 
-                print(SubjectName)
-                let loaded_class = Class(campus: Campus, classname: SubjectName, code: Code, day: Day, faculty: Faculty, roomnumber: "Room", time: Time, locationPhoto: self.LocationImage, timePhoto: self.TimeImage)
-
-//                let loaded_class = Class(subclassCode: Code, className: SubjectName, locationPhoto: self.LocationImage, room: Room, faculty: Faculty, campus: Campus, timePhoto: self.TimeImage, day: Day, time: Time)
-                self.classes.append(loaded_class!)
-
+                let patternClass = Class(campus: Campus, classname: SubjectName, code: Code, day: Day, faculty: Faculty, roomnumber: "Room", time: Time, locationPhoto: self.LocationImage, timePhoto: self.TimeImage)
+                
+                self.classes.append(patternClass!)
+                
                 self.tableView.reloadData()
-                print(SubjectName)
+            }
+        })
+    }
+    
+    //fetch images class Firebase
+    func FetchImageClassDetails() {
+        ref.child("Class/Images Processing/details").observe(.value , with: { snapshot in
+            //  for i in ref.child(<#T##pathString: String##String#>)
+            print(snapshot.value)
+            if let dict = snapshot.value as? [String: Any] {
+                let Campus = dict["campus"] as! String
+                let SubjectName = dict["classname"] as! String
+                let Code = dict["code"] as! String
+                let Day = dict["day"] as! String
+                let Faculty = dict["faculty"] as! String
+                //let Roomnumber = dict["roomnumber"] as! String
+                let Time = dict["time"] as! String
+                
+                let ImageClass = Class(campus: Campus, classname: SubjectName, code: Code, day: Day, faculty: Faculty, roomnumber: "Room", time: Time, locationPhoto: self.LocationImage, timePhoto: self.TimeImage)
+                
+                self.classes.append(ImageClass!)
+                
+                self.tableView.reloadData()
             }
         })
     }

@@ -46,8 +46,32 @@ class DetailsViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        let LectureVC = segue.destination as! LecturesTableViewController
+        LectureVC.checkinClass = "Default_Class"
+        switch (segue.identifier ?? "") {
+        case "mobileSegue":
+            LectureVC.checkinClass = "Mobile_Class"
+        case "patternSegue":
+            LectureVC.checkinClass = "Pattern_Class"
+        case "imageSegue":
+            LectureVC.checkinClass = "Image_Class"
+        default:
+            print("default segue case")
+        }
         
     }
+    
+    @IBAction func CheckinMethod(_ sender: Any) {
+        if select_class?.classname == "Mobile Devices"{
+            self.performSegue(withIdentifier: "mobileSegue", sender: self)
+        } else if select_class?.classname == "Pattern Recognition" {
+            self.performSegue(withIdentifier: "patternSegue", sender: self)
+        } else if select_class?.classname == "Image Processing" {
+            self.performSegue(withIdentifier: "imageSegue", sender: self)
+        }
+    }
+    
     
 
 }

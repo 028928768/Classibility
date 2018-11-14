@@ -19,6 +19,7 @@ class LecturesTableViewController: UITableViewController {
     @IBOutlet weak var room: UILabel!
     var lectures = [Lecture]()
     let vectorImage = UIImage(named: "vectorIMG")
+    var checkinClass: String = ""
     
    //Database reference
     let ref = Database.database().reference()
@@ -26,13 +27,21 @@ class LecturesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FetchLecture()
-        print(lectures)
+        
+        if checkinClass == "Mobile_Class" {
+           FetchMobileLecture()
+        } else if checkinClass == "Pattern_Class" {
+            FetchPatternLecture()
+        } else if checkinClass == "Image_Class" {
+            FetchImageLecture()
+        }
+       
     }
 
     
     //private function
-    func FetchLecture(){
+    //fetch mobile lecture data Firebase
+    func FetchMobileLecture(){
         ref.child("Class/Mobile/lectures").observe(.value, with: { snapshot in
             print(snapshot.value)
             if let dict = snapshot.value as? [String: Any]{
@@ -43,18 +52,75 @@ class LecturesTableViewController: UITableViewController {
                 let week5 = dict["week5"] as! String
                 
                 print(week1)
+                let load_week1 = Lecture(week: week1, date: "15-Oct-18", room: "6272", arrow: self.vectorImage!)
+                let load_week2 = Lecture(week: week2, date: "19-Oct-18", room: "6272", arrow: self.vectorImage!)
+                let load_week3 = Lecture(week: week3, date: "24-Oct-18", room: "6272", arrow: self.vectorImage!)
+                let load_week4 = Lecture(week: week4, date: "1-Nov-18", room: "6272", arrow: self.vectorImage!)
+                let load_week5 = Lecture(week: week5, date: "15-Nov-18", room: "6272", arrow: self.vectorImage!)
+                
+                self.lectures.append(load_week1)
+                self.lectures.append(load_week2)
+                self.lectures.append(load_week3)
+                self.lectures.append(load_week4)
+                self.lectures.append(load_week5)
+                self.tableView.reloadData()
+               
+            }
+        })
+    }
+    //fetch pattern lecture data Firebase
+    func FetchPatternLecture(){
+        ref.child("Class/Pattern/lectures").observe(.value, with: { snapshot in
+            print(snapshot.value)
+            if let dict = snapshot.value as? [String: Any]{
+                let week1 = dict["week1"] as! String
+                let week2 = dict["week2"] as! String
+                let week3 = dict["week3"] as! String
+                let week4 = dict["week4"] as! String
+              //  let week5 = dict["week5"] as! String
+                
+                print(week1)
                 let load_week1 = Lecture(week: week1, date: "15-Oct-18", room: "6274", arrow: self.vectorImage!)
                 let load_week2 = Lecture(week: week2, date: "19-Oct-18", room: "6274", arrow: self.vectorImage!)
                 let load_week3 = Lecture(week: week3, date: "24-Oct-18", room: "6274", arrow: self.vectorImage!)
                 let load_week4 = Lecture(week: week4, date: "1-Nov-18", room: "6274", arrow: self.vectorImage!)
-                let load_week5 = Lecture(week: week5, date: "15-Nov-18", room: "6274", arrow: self.vectorImage!)
+               // let load_week5 = Lecture(week: week5, date: "15-Nov-18", room: "6274", arrow: self.vectorImage!)
                 
                 self.lectures.append(load_week1)
-              //  self.lectures.append(load_week2)
-              //  self.lectures.append(load_week3)
-              //  self.lectures.append(load_week4)
+                self.lectures.append(load_week2)
+                self.lectures.append(load_week3)
+                self.lectures.append(load_week4)
               //  self.lectures.append(load_week5)
-               
+                self.tableView.reloadData()
+                
+            }
+        })
+    }
+    //fetch Images lecture data Firebase
+    func FetchImageLecture(){
+        ref.child("Class/Images Processing/lectures").observe(.value, with: { snapshot in
+            print(snapshot.value)
+            if let dict = snapshot.value as? [String: Any]{
+                let week1 = dict["week1"] as! String
+                let week2 = dict["week2"] as! String
+                let week3 = dict["week3"] as! String
+                let week4 = dict["week4"] as! String
+                let week5 = dict["week5"] as! String
+                
+                print(week1)
+                let load_week1 = Lecture(week: week1, date: "15-Oct-18", room: "6275", arrow: self.vectorImage!)
+                let load_week2 = Lecture(week: week2, date: "19-Oct-18", room: "6275", arrow: self.vectorImage!)
+                let load_week3 = Lecture(week: week3, date: "24-Oct-18", room: "6275", arrow: self.vectorImage!)
+                let load_week4 = Lecture(week: week4, date: "1-Nov-18", room: "6275", arrow: self.vectorImage!)
+                let load_week5 = Lecture(week: week5, date: "15-Nov-18", room: "6275", arrow: self.vectorImage!)
+                
+                self.lectures.append(load_week1)
+                self.lectures.append(load_week2)
+                self.lectures.append(load_week3)
+                self.lectures.append(load_week4)
+                self.lectures.append(load_week5)
+                self.tableView.reloadData()
+                
             }
         })
     }
