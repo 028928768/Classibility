@@ -498,7 +498,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Class" id="aDn-Ck-ltn">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="sidemenuIMG" id="vis-p2-XXh"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tHI-fB-EDg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="tHI-fB-EDg">
                             <connections>
                                 <segue destination="IzI-fN-9ap" kind="presentation" identifier="newClass" id="Xr9-oq-8uz"/>
                             </connections>
@@ -584,7 +584,11 @@
                         <viewLayoutGuide key="safeArea" id="AwN-Ju-d7v"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Class" id="QVX-Vp-My1">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="e1N-sU-dLS"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="e1N-sU-dLS">
+                            <connections>
+                                <action selector="cancel:" destination="5Nw-XB-TCG" id="YZI-y4-a9V"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="fuO-R0-CSL">
                             <connections>
                                 <segue destination="Lfd-Bc-AoA" kind="unwind" unwindAction="unwindToMainClassWithSender:" id="Flz-DF-w6F"/>
@@ -945,18 +949,10 @@
                                 <state key="normal" title="Check-In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                            </button>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nxf-Ba-iK3">
-                                <rect key="frame" x="56" y="192" width="263" height="283"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.54901960780000003" green="0.84313725490000002" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="oba-7S-UHV" appends="YES" id="Ykm-t8-z2M"/>
-                                    <outletCollection property="gestureRecognizers" destination="oba-7S-UHV" appends="YES" id="z4j-Vg-XwL"/>
-                                    <outletCollection property="gestureRecognizers" destination="oba-7S-UHV" appends="YES" id="1GN-z7-5dC"/>
+                                    <action selector="takePhotoActiobn:" destination="PHy-5s-B4U" eventType="touchUpInside" id="Yvb-A8-JIV"/>
                                 </connections>
-                            </imageView>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXA-t6-VNU">
                                 <rect key="frame" x="87" y="571" width="200" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -969,7 +965,11 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cbc-fR-bs3">
-                                <rect key="frame" x="164" y="313" width="45" height="45"/>
+                                <rect key="frame" x="165" y="107" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DAZ-Jk-ihg">
+                                <rect key="frame" x="290" y="467" width="85" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -984,18 +984,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="CemeraZone" destination="nxf-Ba-iK3" id="bQw-03-7XT"/>
                         <outlet property="TipBar" destination="YvT-A3-O1v" id="dxa-Pg-bpk"/>
                         <outlet property="camera" destination="Cbc-fR-bs3" id="rg7-Wk-vhO"/>
+                        <outlet property="captureImageView" destination="DAZ-Jk-ihg" id="A50-ad-w53"/>
+                        <outlet property="checkinButton" destination="Irt-gC-x1l" id="FZJ-ok-io0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5EW-v7-zRD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="oba-7S-UHV">
-                    <connections>
-                        <action selector="CameraActivated:" destination="PHy-5s-B4U" id="kHB-fe-kCP"/>
-                        <outlet property="delegate" destination="nxf-Ba-iK3" id="iph-Si-0bH"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="7512.8000000000002" y="753.37331334332839"/>
         </scene>
