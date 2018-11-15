@@ -23,6 +23,9 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var gender: UITextField!
     @IBOutlet weak var aboutme: UITextView!
     
+    @IBOutlet weak var saveButton: UIButton!
+    
+    
     //MARK: Graphic
     let editProfilePanelImage = UIImage(named: "editProfileIMG")
     let editProfileLogoImage = UIImage(named: "editProfileLogoIMG")
@@ -31,8 +34,8 @@ class EditProfileViewController: UIViewController {
         super.viewDidLoad()
 
         assignGraphic()
-        storeDefaultProfile()
-        currentProfile = loadProfile()
+        //storeDefaultProfile()
+        //currentProfile = loadProfile()
         displayCurrentProfile()
         
     }
@@ -58,7 +61,7 @@ class EditProfileViewController: UIViewController {
         gender.text = currentProfile?.gender
         aboutme.text = currentProfile?.aboutme
         
-//        editProfile = Profile(surname: surName.text ?? "Name", lastname: lastName.text ?? "LastName", campus: campus.text ?? "", faculty: faculty.text ?? "", gender: gender.text ?? " ", aboutme: aboutme.text)
+       // editProfile = Profile(surname: surName.text ?? "Name", lastname: lastName.text ?? "LastName", campus: campus.text ?? "", faculty: faculty.text ?? "", gender: gender.text ?? " ", aboutme: aboutme.text)
     }
     
     @IBAction func saveMethod(_ sender: Any) {
@@ -86,19 +89,32 @@ class EditProfileViewController: UIViewController {
     }
     
     
+    @IBAction func Cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        if segue.identifier == "saveProfile" {
-          let vc: ProfileViewController  = segue.destination as! ProfileViewController
-                vc.editedProfile = self.editProfile
-            
-            
-    
+       
+        guard let button = sender as? UIButton, button === saveButton else {
+            os_log("The save button was not pressed, cancelling",log: OSLog.default, type: .debug)
+            return
         }
+        print("InsertData")
+        //store data to unwindSegue
+        let editsurName = surName.text
+        let editlastName = lastName.text
+        let editCampus = campus.text
+        let editFaculty = faculty.text
+        let editgender = gender.text
+        let editAboutme = aboutme.text
+        editProfile = Profile(surname: editsurName ?? "Name", lastname: editlastName ?? "LastName", campus: editCampus ?? "Campus", faculty: editFaculty ?? "Faculty", gender: editgender ?? "Gender", aboutme: editAboutme ?? "About me ....")
+        
+        
     }
+    
     
     
     

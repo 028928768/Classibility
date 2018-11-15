@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="igy-6Q-Qyc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1043,7 +1043,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveMethod:" destination="W7t-dL-Ghw" eventType="touchUpInside" id="gKj-XK-lfQ"/>
+                                    <segue destination="tZi-cS-xhN" kind="unwind" unwindAction="unwindToProfileWithSender:" id="CHe-5e-Ax5"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kMl-9F-W3r">
@@ -1120,7 +1120,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="About Me...." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPj-33-x4S">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="About Me...." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sPj-33-x4S">
                                 <rect key="frame" x="62" y="439" width="255" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1136,7 +1136,11 @@
                         <viewLayoutGuide key="safeArea" id="LUR-gA-Ydq"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ln1-Cu-Xpp">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="x5P-7w-jvD"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="x5P-7w-jvD">
+                            <connections>
+                                <action selector="Cancel:" destination="W7t-dL-Ghw" id="6sF-v9-mek"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="aboutme" destination="sPj-33-x4S" id="K6i-YC-G0j"/>
@@ -1146,11 +1150,12 @@
                         <outlet property="faculty" destination="QcD-PF-PVm" id="ntC-gS-vY8"/>
                         <outlet property="gender" destination="hbR-A2-TYP" id="XT8-Bf-FRT"/>
                         <outlet property="lastName" destination="Hjw-PC-D3y" id="jf9-eo-bXH"/>
+                        <outlet property="saveButton" destination="ZL2-g5-x6V" id="gKc-Sy-aOc"/>
                         <outlet property="surName" destination="lIr-9W-jWV" id="ZEu-mw-2EB"/>
-                        <segue destination="hkN-a6-IfF" kind="show" identifier="saveProfile" id="4Pb-EF-OW9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AHP-er-90V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="tZi-cS-xhN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="7068" y="1471.2143928035982"/>
         </scene>
@@ -1352,7 +1357,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="M3W-Yb-shu"/>
-        <segue reference="4Pb-EF-OW9"/>
         <segue reference="eG5-Hb-5ch"/>
     </inferredMetricsTieBreakers>
 </document>

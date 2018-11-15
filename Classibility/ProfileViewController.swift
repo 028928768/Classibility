@@ -35,17 +35,15 @@ class ProfileViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         assignGraphic()
-       // storeDefaultProfile()
+        storeDefaultProfile()
         profile = loadProfile()
-        editedProfile = loadProfile()
+       
         if profile == loadProfile() {
             displayProfile()
         } else {
-            displayEdittedProfile()
+         //   displayEdittedProfile()
         }
-        displayProfile()
-     
-        print("Run")
+        //displayProfile()
     
         
     }
@@ -56,7 +54,7 @@ class ProfileViewController: UIViewController {
     }
     
     func storeDefaultProfile() {
-        self.profile = Profile(surname: "Name", lastname:"LastName", campus:"Campus", faculty: "Faculty", gender: "Gender", aboutme: "About Me....")
+        self.profile = Profile(surname: "Kanta", lastname:"LastName", campus:"Campus", faculty: "Faculty", gender: "Gender", aboutme: "About Me....")
         saveProfile()
     }
     
@@ -114,13 +112,22 @@ class ProfileViewController: UIViewController {
         if segue.identifier == "ToEditProfile" {
             if let nav = segue.destination as? UINavigationController,
                 let vc = nav.topViewController as? EditProfileViewController {
-              //  vc.currentProfile = self.profile
+                vc.currentProfile = self.profile
             }
     
            // let secondVC: EditProfileViewController = segue.destination as! EditProfileViewController
         
         }
         
+    }
+    
+    //UnwindBackfrom Edit to Profile Page
+    //unwind segue
+    @IBAction func unwindToProfile(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? EditProfileViewController, let Editprofile = sourceViewController.editProfile {
+            profile = Editprofile
+            displayProfile()
+        }
     }
 
 }
