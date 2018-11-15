@@ -10,7 +10,7 @@ import UIKit
 import os.log
 
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     //MARK: Properties
     var profile : Profile?
     var editedProfile : Profile?
@@ -24,6 +24,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var campusDetail: UILabel!
     @IBOutlet weak var genderDetail: UILabel!
     @IBOutlet weak var aboutMeText: UITextView!
+  
     
     //Graphic
     let profileLogoImage = UIImage(named: "profileLogo")
@@ -79,6 +80,35 @@ class ProfileViewController: UIViewController {
     @IBAction func editProfileMethod(_ sender: Any) {
         self.performSegue(withIdentifier: "ToEditProfile", sender: self)
     }
+    
+    //Profile Image Picking Actions
+    @IBAction func selectProfileImage(_ sender: UITapGestureRecognizer) {
+        //UIImagePickerController is a view controller that let's a user pick media from their photo library
+        let imagePickerController = UIImagePickerController()
+        
+        imagePickerController.delegate = self
+        present(imagePickerController,animated: true,completion: nil)
+    }
+    
+    //imagepicker delegate method
+    //MARK: UIImagePickerControllerDelegate
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        
+        //Set photoImageView to display the selected image.
+        profileImage.image = selectedImage
+      
+        
+        //Dismiss the picker.
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
     
     //Save Profile to database
     private func saveProfile(){
