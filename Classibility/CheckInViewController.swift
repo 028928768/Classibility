@@ -8,8 +8,13 @@
 
 import UIKit
 import AVFoundation
+import Alamofire
+import  SwiftyJSON
 
 class CheckInViewController: UIViewController {
+    
+    var app_id = "d37e1b09"
+    var app_key = "720d253758e6e33d6ba3558f6ae61a31"
     //MARK: Properties
     @IBOutlet weak var TipBar: UIImageView!
     @IBOutlet weak var camera: UIImageView!
@@ -46,6 +51,31 @@ class CheckInViewController: UIViewController {
 
        
     }
+    
+    func recognize(imageBase64: String){
+        var request = URLRequest(url: URL(string: "https://api.kairos.com/recognize")!)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(app_id, forHTTPHeaderField: "app_id")
+        request.setValue(app_key, forHTTPHeaderField: "app_key")
+        
+        let params : NSMutableDictionary? = [
+            "image" : imageBase64,
+            "gallery_name" : "profileEnroll",
+            ]
+        let data = try! JSONSerialization.data(withJSONObject: params!, options: JSONSerialization.WritingOptions.prettyPrinted)
+        
+        let json = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+        request.httpBody = json!.data(using: String.Encoding.utf8.rawValue);
+        Alamofire.request(request).responseJSON { (response) in
+            if((response.result.value) != nil) {
+                let json = JSON(response.result.value!)
+                print(json)
+                //self.dataTextView.text = "\(json)"
+            }
+        }
+    }
+    
     func setupCaptureSession(){
         captureSession.sessionPreset = AVCaptureSession.Preset.photo
     }
@@ -60,7 +90,7 @@ class CheckInViewController: UIViewController {
                 frontCamera = device
             }
         }
-        currentCamera = backCamera
+        currentCamera = frontCamera
     }
     func setupInputOutput(){
         do {
@@ -98,6 +128,10 @@ class CheckInViewController: UIViewController {
     
     //tap checkin button
     @IBAction func takePhotoActiobn(_ sender: Any) {
+        let settings = AVCapturePhotoSettings()
+        settings.flashMode = AVCaptureDevice.FlashMode.off
+        photoOutput?.capturePhoto(with: settings, delegate: self)
+        print("Captured!")
     }
     
     //Actions
@@ -116,4 +150,17 @@ class CheckInViewController: UIViewController {
     
     
 
+}
+
+extension CheckInViewController : AVCapturePhotoCaptureDelegate {
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        let imageData = photo.fileDataRepresentation()
+        let image = UIImage(data: imageData!)
+
+        let imagedata = image?.jpegData(compressionQuality: 1.0)
+        let base64String : String = imagedata!.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
+        let imageStr : String = base64String.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+        recognize(imageBase64: imageStr)
+    }
 }

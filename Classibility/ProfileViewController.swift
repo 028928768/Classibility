@@ -8,12 +8,19 @@
 
 import UIKit
 import os.log
-
+import Alamofire
+import SwiftyJSON
+import FirebaseAuth
 
 class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     //MARK: Properties
     var profile : Profile?
     var editedProfile : Profile?
+    //var userID = Auth.auth().currentUser!.uid
+    
+    var app_id = "d37e1b09"
+    var app_key = "720d253758e6e33d6ba3558f6ae61a31"
+    
     @IBOutlet weak var profileLogo: UIImageView!
     @IBOutlet weak var profileBackGround: UIImageView!
     @IBOutlet weak var profileImage: UIImageView!
@@ -48,6 +55,35 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
         
     }
+    
+    func enroll(imageBase64: String){
+        var request = URLRequest(url: URL(string: "https://api.kairos.com/enroll")!)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        request.setValue(app_id, forHTTPHeaderField: "app_id")
+        request.setValue(app_key, forHTTPHeaderField: "app_key")
+        
+        let params : NSMutableDictionary? = [
+            "image" : imageBase64,
+            "gallery_name" : "profileEnroll",
+            "subject_id" : "userID2"
+        ]
+        let data = try! JSONSerialization.data(withJSONObject: params!, options: JSONSerialization.WritingOptions.prettyPrinted)
+        
+        let json = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+        request.httpBody = json!.data(using: String.Encoding.utf8.rawValue);
+        Alamofire.request(request).responseJSON { (response) in
+            if((response.result.value) != nil) {
+                let json = JSON(response.result.value!)
+                
+                let alert = UIAlertController(title: "Kairos", message: "\(json)", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
     func assignGraphic() {
         profileLogo.image = profileLogoImage
         profileBackGround.image = profileBackgroundImage
@@ -96,13 +132,19 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UI
         dismiss(animated: true, completion: nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            let imagedata = selectedImage.jpegData(compressionQuality: 1.0)
+            let base64String : String = imagedata!.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
+            let imageStr : String = base64String.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            
+            enroll(imageBase64: imageStr)
+            profileImage.image = selectedImage
+        }
+        else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
         
         //Set photoImageView to display the selected image.
-        profileImage.image = selectedImage
-      
         
         //Dismiss the picker.
         dismiss(animated: true, completion: nil)
