@@ -47,6 +47,9 @@
 		15F88F2D21B5D9DE007F19E5 /* RecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F88F2C21B5D9DE007F19E5 /* RecordTableViewController.swift */; };
 		15F88F2F21B5DAA2007F19E5 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F88F2E21B5DAA2007F19E5 /* Record.swift */; };
 		15F88F3121B5DB2C007F19E5 /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F88F3021B5DB2C007F19E5 /* RecordTableViewCell.swift */; };
+		15F88F3321B5E7F4007F19E5 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F88F3221B5E7F4007F19E5 /* Member.swift */; };
+		15F88F3521B5E86A007F19E5 /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F88F3421B5E86A007F19E5 /* MemberTableViewCell.swift */; };
+		15F88F3721B5E878007F19E5 /* MemberTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F88F3621B5E878007F19E5 /* MemberTableViewController.swift */; };
 		43282EFF8661B7E6DDA134C4 /* Pods_ClassibilityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8609475F857C81DB708CFE9 /* Pods_ClassibilityTests.framework */; };
 		7AB0C847BE0F2C18BFE54BA7 /* Pods_ClassibilityUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905F1111E81936EC2AC93A5A /* Pods_ClassibilityUITests.framework */; };
 		F656E1CC5AF917913D77F9D4 /* Pods_Classibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C27037508673236A7B75D88 /* Pods_Classibility.framework */; };
@@ -128,6 +131,9 @@
 		15F88F2C21B5D9DE007F19E5 /* RecordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewController.swift; sourceTree = "<group>"; };
 		15F88F2E21B5DAA2007F19E5 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		15F88F3021B5DB2C007F19E5 /* RecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
+		15F88F3221B5E7F4007F19E5 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		15F88F3421B5E86A007F19E5 /* MemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTableViewCell.swift; sourceTree = "<group>"; };
+		15F88F3621B5E878007F19E5 /* MemberTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTableViewController.swift; sourceTree = "<group>"; };
 		232AB3CBC92DCE4A10D61B99 /* Pods-ClassibilityUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassibilityUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassibilityUITests/Pods-ClassibilityUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3C3E71A3F7C40EC25A591226 /* Pods-ClassibilityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassibilityTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassibilityTests/Pods-ClassibilityTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B647EEB55EC57F1F082B276 /* Pods-ClassibilityUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassibilityUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassibilityUITests/Pods-ClassibilityUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				15EAEA8D218E156C00073472 /* Class.swift */,
+				15F88F3221B5E7F4007F19E5 /* Member.swift */,
 				15F88F2621B5D2CA007F19E5 /* HisClass.swift */,
 				1556E4E12196B4D0007240F4 /* Profile.swift */,
 				15111647219346E700CAA1D2 /* ClassData.swift */,
@@ -211,6 +218,8 @@
 				15E99057218EC7FC00043441 /* newClassViews */,
 				153A803D2180D5A60009E963 /* AppDelegate.swift */,
 				153A80412180D5A60009E963 /* Main.storyboard */,
+				15F88F3421B5E86A007F19E5 /* MemberTableViewCell.swift */,
+				15F88F3621B5E878007F19E5 /* MemberTableViewController.swift */,
 				15F88F3021B5DB2C007F19E5 /* RecordTableViewCell.swift */,
 				15F88F2C21B5D9DE007F19E5 /* RecordTableViewController.swift */,
 				1556E4DD2196B11C007240F4 /* ProfileViewController.swift */,
@@ -530,7 +539,9 @@
 				153A806E2180E9D90009E963 /* RegisterViewController.swift in Sources */,
 				15D167F92196034B0040B623 /* LectureTableViewCell.swift in Sources */,
 				15F88F2F21B5DAA2007F19E5 /* Record.swift in Sources */,
+				15F88F3521B5E86A007F19E5 /* MemberTableViewCell.swift in Sources */,
 				153A806C2180D7480009E963 /* LoginViewController.swift in Sources */,
+				15F88F3321B5E7F4007F19E5 /* Member.swift in Sources */,
 				15F88F3121B5DB2C007F19E5 /* RecordTableViewCell.swift in Sources */,
 				15EAEA8C218DF54400073472 /* ClassTableViewController.swift in Sources */,
 				1556E4E421973C42007240F4 /* Lecture.swift in Sources */,
@@ -543,6 +554,7 @@
 				15EAEA8E218E156C00073472 /* Class.swift in Sources */,
 				15E9905E218EC88500043441 /* TimeViewController.swift in Sources */,
 				15111648219346E700CAA1D2 /* ClassData.swift in Sources */,
+				15F88F3721B5E878007F19E5 /* MemberTableViewController.swift in Sources */,
 				15E9905A218EC86500043441 /* LocationViewController.swift in Sources */,
 				159FEE272181A421005B0683 /* ResendViewController.swift in Sources */,
 				15F88F2D21B5D9DE007F19E5 /* RecordTableViewController.swift in Sources */,

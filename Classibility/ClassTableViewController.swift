@@ -224,8 +224,9 @@ class ClassTableViewController: UITableViewController {
             detailViewController.select_class = selectedClass
         case "newClass":
             print("Navigate from Addbutton to newclass page")
-            default:
-            fatalError("Unexpected identifier!")
+           
+        default:
+            print("segue")
         }
     }
 

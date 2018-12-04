@@ -65,7 +65,11 @@ class HistoryTableViewController: UITableViewController {
         
         classes += [class1,class2,class3]
     }
- 
+    
+    @IBAction func HomeMethod(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.

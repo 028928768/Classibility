@@ -9,7 +9,8 @@
 import UIKit
 import AVFoundation
 import Alamofire
-import  SwiftyJSON
+import SwiftyJSON
+import FirebaseDatabase
 
 class CheckInViewController: UIViewController {
     
@@ -22,10 +23,13 @@ class CheckInViewController: UIViewController {
     @IBOutlet weak var checkinButton: UIButton!
     @IBOutlet weak var previewView: UIView!
     
+    
     let tipbarImage = UIImage(named: "TipbarIMG")
    // let cameraZoneImage = UIImage(named: "ScanPanelIMG")
     let cameraImage = UIImage(named: "CameraIMG")
+    let clockImage = UIImage(named: "ClockIconIMG")
     
+    let ref = Database.database().reference()
     //Camera
     var captureSession = AVCaptureSession()
     var backCamera: AVCaptureDevice?
@@ -53,6 +57,7 @@ class CheckInViewController: UIViewController {
     }
     
     func recognize(imageBase64: String){
+        self.camera.image = self.clockImage
         var request = URLRequest(url: URL(string: "https://api.kairos.com/recognize")!)
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -70,8 +75,18 @@ class CheckInViewController: UIViewController {
         Alamofire.request(request).responseJSON { (response) in
             if((response.result.value) != nil) {
                 let json = JSON(response.result.value!)
-                print(json)
-                //self.dataTextView.text = "\(json)"
+                
+                //let jsonData = Data()
+//                let parsed = try? JSONSerialization.JSONObjectWithData(json, options: .MutableContainers) as! NSDictionary
+//                if let name = parsed["userid"]{
+//                    print("hellow")
+//                }
+
+                let alert = UIAlertController(title: "Kairos", message: "\(json)", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                self.camera.image = self.cameraImage
+                self.ref.child("Class/Images Processing/members").setValue(["userid1"])
             }
         }
     }
@@ -96,7 +111,9 @@ class CheckInViewController: UIViewController {
         do {
              let captureDeviceInput = try AVCaptureDeviceInput(device: currentCamera!)
             captureSession.addInput(captureDeviceInput)
+            photoOutput = AVCapturePhotoOutput()
             photoOutput?.setPreparedPhotoSettingsArray([AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])], completionHandler: nil)
+            captureSession.addOutput(photoOutput!)
         } catch {
             print("error")
             
@@ -131,7 +148,7 @@ class CheckInViewController: UIViewController {
         let settings = AVCapturePhotoSettings()
         settings.flashMode = AVCaptureDevice.FlashMode.off
         photoOutput?.capturePhoto(with: settings, delegate: self)
-        print("Captured!")
+        //print("Captured!")
     }
     
     //Actions
@@ -156,11 +173,12 @@ extension CheckInViewController : AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         let imageData = photo.fileDataRepresentation()
         let image = UIImage(data: imageData!)
-
+        captureImageView.image = image
         let imagedata = image?.jpegData(compressionQuality: 1.0)
         let base64String : String = imagedata!.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
         let imageStr : String = base64String.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
 
         recognize(imageBase64: imageStr)
+        //print("hello")
     }
 }

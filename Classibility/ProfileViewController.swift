@@ -84,6 +84,9 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UI
         }
     }
     
+    @IBAction func HomeMethod(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     func assignGraphic() {
         profileLogo.image = profileLogoImage
         profileBackGround.image = profileBackgroundImage
